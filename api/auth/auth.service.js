@@ -37,7 +37,6 @@ async function login(code) {
 
     if (!user) throw 'Unkown username'
 
-    delete user.code
     const miniUser = {
         id: user.id,
         name: user.name,
