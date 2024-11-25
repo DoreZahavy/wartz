@@ -2,12 +2,16 @@ import { utilService } from '../../services/util.service.js'
 
 const users = utilService.readJsonFile('data/user.json')
 
+const USER_STARTER_POINTS = 20
+
 export const userService = {
   query,
   getUserByName,
   remove,
   add,
   getUserByCode,
+  spendPoints,
+  refreshPoints
 }
 
 async function query() {
@@ -29,14 +33,29 @@ async function remove(userId) {
 }
 
 async function add(name, code) {
-  console.log('🚀 ~ add ~ code:', code)
   const user = {
     id: utilService.makeId(5),
     name,
     code: code ? code : utilService.makeId(3),
-    pointsLeft: 20,
+    pointsLeft: USER_STARTER_POINTS,
     activities: [],
   }
   users.push(user)
   return utilService.saveToFile('user', users).then(() => user)
+}
+
+function spendPoints(amount, userId) {
+  const user = users.find((user) => user.id == userId)
+  if (!user) throw new Error('Cannot find user')
+  if (user.pointsLeft < amount) throw new Error('Insufficient funds')
+  user.pointsLeft -= amount
+  utilService.saveToFile('user', users)
+}
+
+async function refreshPoints() {
+  users.forEach((user) => {
+    user.pointsLeft = USER_STARTER_POINTS
+  })
+
+  return await utilService.saveToFile('user', users).then(() => users)
 }

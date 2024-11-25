@@ -42,3 +42,8 @@ export async function addUser(req, res) {
     res.status(400).send({ err: 'Failed to update user' })
   }
 }
+
+export async function resetPoints(req, res) {
+  const users = await userService.refreshPoints()
+  res.send(users)
+}
