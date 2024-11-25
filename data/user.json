@@ -1,30 +1,15 @@
 [
   {
     "name": "Dore",
+    "code": "12q",
     "pointsLeft": 23,
     "id": "d3hr4",
-    "code": "12q",
     "activities": []
   },
   {
     "name": "Dean",
     "pointsLeft": 24,
     "id": "d3h3f",
-    "code": "dwq",
-    "activities": []
-  },
-  {
-    "id": "lpnPO",
-    "name": "ada",
-    "code": "",
-    "pointsLeft": 20,
-    "activities": []
-  },
-  {
-    "id": "J8GYr",
-    "name": "adaa",
-    "code": "",
-    "pointsLeft": 20,
     "activities": []
   },
   {
@@ -38,6 +23,13 @@
     "id": "7OYUo",
     "name": "adaaasd",
     "code": "as",
+    "pointsLeft": 20,
+    "activities": []
+  },
+  {
+    "id": "nwka1",
+    "name": "sdf",
+    "code": "wwM",
     "pointsLeft": 20,
     "activities": []
   }
