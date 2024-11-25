@@ -8,33 +8,36 @@ export const userService = {
   getUserByName,
   remove,
   add,
-  getUserByCode
+  getUserByCode,
 }
 
 async function query() {
   return users
 }
 
-
-
 async function getUserByCode(code) {
-  return users.find(user => user.code === code)
+  return users.find((user) => user.code === code)
 }
 async function getUserByName(code) {
-  return users.find(user => user.name === name)
+  return users.find((user) => user.name === name)
 }
 
 async function remove(userId) {
-  users = users.filter((user) => user._id !== userId)
+  const userIdx = users.findIndex((user) => user.id == userId)
+  users.splice(userIdx, 1)
+  // users = users.filter((user) => user._id !== userId)
   return utilService.saveToFile('user', users)
 }
 
-async function add(name) {
+async function add(name, code) {
+  console.log('🚀 ~ add ~ code:', code)
   const user = {
     id: utilService.makeId(5),
     name,
-    code: utilService.makeId(3),
+    code: code ? code : utilService.makeId(3),
+    pointsLeft: 20,
     activities: [],
   }
-  return utilService.saveToFile('user', users)
+  users.push(user)
+  return utilService.saveToFile('user', users).then(() => user)
 }

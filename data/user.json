@@ -1,12 +1,44 @@
-[{
-  "name":"Dore",
-  "score":23,
-  "id":"d3hr4",
-  "code":"12q"
-},
-{
-  "name":"Dean",
-  "score":24,
-  "id":"d3h3f",
-  "code":"dwq"
-}]
+[
+  {
+    "name": "Dore",
+    "pointsLeft": 23,
+    "id": "d3hr4",
+    "code": "12q",
+    "activities": []
+  },
+  {
+    "name": "Dean",
+    "pointsLeft": 24,
+    "id": "d3h3f",
+    "code": "dwq",
+    "activities": []
+  },
+  {
+    "id": "lpnPO",
+    "name": "ada",
+    "code": "",
+    "pointsLeft": 20,
+    "activities": []
+  },
+  {
+    "id": "J8GYr",
+    "name": "adaa",
+    "code": "",
+    "pointsLeft": 20,
+    "activities": []
+  },
+  {
+    "id": "AIHUd",
+    "name": "adaaasd",
+    "code": "PnG",
+    "pointsLeft": 20,
+    "activities": []
+  },
+  {
+    "id": "7OYUo",
+    "name": "adaaasd",
+    "code": "as",
+    "pointsLeft": 20,
+    "activities": []
+  }
+]
