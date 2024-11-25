@@ -35,7 +35,7 @@ async function login(code) {
     // const user = users.find(user => user.code === code)
 
 
-    if (!user) throw 'Unkown username'
+    if (!user) throw 'Unkown code'
 
     const miniUser = {
         id: user.id,
