@@ -9,29 +9,10 @@
   {
     "name": "Dean",
     "code": "dwq",
-    "pointsLeft": 24,
+    "pointsLeft": 22,
     "id": "d3h3f",
     "activities": [
-      {
-        "at": 1747983826939,
-        "action": "Dean game 2 points to Slytherin"
-      },
-      {
-        "at": 1747984374443,
-        "action": "Dean game 3 points to Hufflepuff"
-      },
-      {
-        "at": 1747986244832,
-        "action": "Dean game 3 points to Slytherin"
-      },
-      {
-        "at": 1747986403969,
-        "action": "Dean game 2 points to Slytherin"
-      },
-      {
-        "at": 1747987377229,
-        "action": "Dean game 3 points to Hufflepuff"
-      }
+   
     ]
   },
   {

@@ -1,4 +1,3 @@
-// Car CRUDL API
 import { loggerService } from '../../services/logger.service.js'
 import { scoreService } from './score.service.js'
 
@@ -18,7 +17,7 @@ export async function raiseScore(req, res) {
     const scoreBoard = await scoreService.raiseScore(
       houseName,
       amount,
-      req.loggedinUser.id
+      req.loggedinUser._id
     )
     loggerService.info(
       `${req.loggedinUser.name} gave ${houseName} ${amount} points`
@@ -31,18 +30,22 @@ export async function raiseScore(req, res) {
 
 export async function resetScores(req, res) {
 
-
   const scoreBoard = await scoreService.saveNewBoard()
   res.send(scoreBoard)
-  // res.send({ msg: 'Reset successfully' })
 }
 
-export function getCSV(req, res) {
+export async function getCSV(req, res) {
 
-  const csv = scoreService.scoresToCSV()
-  res.setHeader('Content-Disposition', 'attachment; filename="house_scores.csv"')
-  res.setHeader('Content-Type', 'text/csv')
-  res.send(csv)
+  try {
+    const csv = await scoreService.scoresToCSV()
+    res.setHeader('Content-Disposition', 'attachment; filename="house_scores.csv"')
+    res.setHeader('Content-Type', 'text/csv')
+    res.send(csv)
+
+  } catch (err) {
+    res.status(500).send('Failed to generate CSV')
+  }
+
 }
 
 

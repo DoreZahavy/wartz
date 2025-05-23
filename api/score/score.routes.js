@@ -1,5 +1,5 @@
 import express from 'express'
-import { getCSV, getScoreBoard, raiseScore, resetScores } from './score.controller.js'
+import {  getCSV, getScoreBoard, raiseScore, resetScores } from './score.controller.js'
 import { log } from '../../middlewares/logger.middleware.js'
 import { requireAdmin, requireAuth } from '../../middlewares/requireAuth.middleware.js'
 
