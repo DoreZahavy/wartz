@@ -4,6 +4,7 @@ import { userService } from '../user/user.service.js'
 
 export async function login(req, res) {
     const { code } = req.body
+    console.log("🚀 ~ login ~ code:", code)
 
     try {
         const user = await authService.login(code)
