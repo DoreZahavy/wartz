@@ -44,17 +44,21 @@ async function add(name, code) {
   return utilService.saveToFile('user', users).then(() => user)
 }
 
-function spendPoints(amount, userId) {
+function spendPoints(amount, userId, houseName) {
   const user = users.find((user) => user.id == userId)
   if (!user) throw new Error('Cannot find user')
   if (user.pointsLeft < amount) throw new Error('Insufficient funds')
   user.pointsLeft -= amount
+  user.activities.push({
+    at: Date.now(),
+    action: `${user.name} game ${amount} points to ${houseName}`
+  })
   utilService.saveToFile('user', users)
 }
 
-async function refreshPoints() {
+async function refreshPoints(amount = USER_STARTER_POINTS) {
   users.forEach((user) => {
-    user.pointsLeft = USER_STARTER_POINTS
+    user.pointsLeft = +amount
   })
 
   return await utilService.saveToFile('user', users).then(() => users)

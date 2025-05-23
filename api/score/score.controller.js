@@ -29,12 +29,22 @@ export async function raiseScore(req, res) {
   }
 }
 
-export function resetScores() {
-  
+export async function resetScores(req, res) {
 
-  scoreService.saveNewBoard()
-  res.send({ msg: 'Reset successfully' })
+
+  const scoreBoard = await scoreService.saveNewBoard()
+  res.send(scoreBoard)
+  // res.send({ msg: 'Reset successfully' })
 }
+
+export function getCSV(req, res) {
+
+  const csv = scoreService.scoresToCSV()
+  res.setHeader('Content-Disposition', 'attachment; filename="house_scores.csv"')
+  res.setHeader('Content-Type', 'text/csv')
+  res.send(csv)
+}
+
 
 
 

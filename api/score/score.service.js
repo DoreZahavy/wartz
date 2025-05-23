@@ -5,7 +5,8 @@ export const scoreService = {
   query,
   raiseScore,
   saveNewBoard,
-  
+  scoresToCSV
+
 }
 
 var scoreBoard = utilService.readJsonFile('./data/score.json')
@@ -15,18 +16,17 @@ function query() {
 }
 
 async function raiseScore(houseName, amount, userId) {
-  await userService.spendPoints(amount, userId)
-
+  userService.spendPoints(amount, userId, houseName)
   const houseScore = scoreBoard.find((house) => house.houseName === houseName)
 
   if (houseScore) {
     houseScore.score += amount
 
-    return utilService.saveToFile('score', scoreBoard).then(() => scoreBoard)
+    return await utilService.saveToFile('score', scoreBoard).then(() => scoreBoard)
   } else throw new Error('edit not available')
 }
 
-function saveNewBoard() {
+async function saveNewBoard() {
   scoreBoard = [
     {
       houseName: 'Slytherin',
@@ -46,6 +46,12 @@ function saveNewBoard() {
     },
   ]
 
-  utilService.saveToFile('score', scoreBoard)
+  return await utilService.saveToFile('score', scoreBoard).then(() => scoreBoard)
+}
+
+function scoresToCSV() {
+  const header = 'House Name,Score\n'
+  const rows = scoreBoard.map(house => `${house.houseName},${house.score}`).join('\n')
+  return header + rows
 }
 

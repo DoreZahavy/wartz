@@ -44,6 +44,7 @@ export async function addUser(req, res) {
 }
 
 export async function resetPoints(req, res) {
-  const users = await userService.refreshPoints()
+  const { amount } = req.params
+  const users = await userService.refreshPoints(amount)
   res.send(users)
 }

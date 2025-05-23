@@ -7,6 +7,6 @@ const router = express.Router()
 router.get('/',requireAdmin, getUsers)
 router.post('/', requireAdmin, addUser)
 router.delete('/:id', requireAdmin, deleteUser)
-router.put('/reset-points', requireAdmin, resetPoints)
+router.put('/reset-points/:amount', requireAdmin, resetPoints)
 
 export const userRoutes = router
