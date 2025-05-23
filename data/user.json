@@ -2,14 +2,14 @@
   {
     "name": "Dore",
     "code": "12q",
-    "pointsLeft": 20,
+    "pointsLeft": 24,
     "id": "d3hr4",
     "activities": []
   },
   {
     "name": "Dean",
     "code": "dwq",
-    "pointsLeft": 20,
+    "pointsLeft": 24,
     "id": "d3h3f",
     "activities": [
       {
@@ -27,6 +27,10 @@
       {
         "at": 1747986403969,
         "action": "Dean game 2 points to Slytherin"
+      },
+      {
+        "at": 1747987377229,
+        "action": "Dean game 3 points to Hufflepuff"
       }
     ]
   },
@@ -34,21 +38,21 @@
     "id": "JA6T7",
     "name": "Moshiko",
     "code": "G0O",
-    "pointsLeft": 20,
+    "pointsLeft": 24,
     "activities": []
   },
   {
     "id": "tAlGe",
     "name": "Jonas",
     "code": "uhP",
-    "pointsLeft": 20,
+    "pointsLeft": 24,
     "activities": []
   },
   {
     "id": "CNtlD",
     "name": "Rambam",
     "code": "4ol",
-    "pointsLeft": 20,
+    "pointsLeft": 24,
     "activities": []
   }
 ]
